@@ -4,16 +4,22 @@ import {
     Grid, Paper
 } from "@material-ui/core";
 
+const style = {
+    Paper: {
+        padding: 20, marginTop: 10, marginBottom: 10,
+    },
+};
+
 export default function Exercises() {
     return (
         <Grid container sm={12}>
             <Grid item sm>
-                <Paper style={{ padding: 20, marginTop:10, marginBottom:10 }}>
+                <Paper style={style.Paper}>
                     Left Pane
                 </Paper>
             </Grid>
             <Grid item sm>
-                <Paper style={{ padding: 20, marginTop:10, marginBottom:10 }}>
+                <Paper style={style.Paper}>
                     Right Pane
                 </Paper>
             </Grid>
