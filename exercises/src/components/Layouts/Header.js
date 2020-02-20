@@ -9,7 +9,7 @@ export default function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h4">
-          Exercise DataBase
+          My Exercise DataBase
         </Typography>
       </Toolbar>
     </AppBar>
