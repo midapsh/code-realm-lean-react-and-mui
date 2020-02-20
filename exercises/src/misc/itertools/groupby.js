@@ -4,9 +4,5 @@ export default function groupBy(xs, key) {
         (rv[x[key]] = rv[x[key]] || []).push(x);
         return rv;
     }, {});
-    if (undefined in aux) {
-        return { "ALL": values(aux) };
-    } else {
-        return aux;
-    }
+    return aux;
 };
