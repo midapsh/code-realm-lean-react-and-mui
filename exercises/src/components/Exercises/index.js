@@ -13,11 +13,11 @@ const style = {
     },
 };
 
-export default function Exercises() {
+export default function Exercises({ exercisesByMuscles }) {
     return (
-        <Grid container sm={12}>
+        <Grid container>
             <Grid item sm>
-                <LeftPane style={style} />
+                <LeftPane style={style} exercisesByMuscles={exercisesByMuscles} />
             </Grid>
             <Grid item sm>
                 <RightPane style={style} />
