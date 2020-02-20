@@ -1,22 +1,26 @@
 import React from 'react';
 
-import { 
+import {
   Paper, Tabs, Tab
- } from "@material-ui/core";
+} from "@material-ui/core";
 
-export default function Footer() {
+export default function Footer({ muscles }) {
   return (
     <Paper >
       <Tabs
-        value={1}
+        value={0}
         // onChange={() => ()}
         indicatorColor="primary"
         textColor="primary"
         centered
       >
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
+        <Tab label="ALL" />
+        {muscles.map(muscle =>
+          <Tab
+            key={muscle}
+            label={muscle}
+          />
+        )}
       </Tabs>
     </Paper>
   );
