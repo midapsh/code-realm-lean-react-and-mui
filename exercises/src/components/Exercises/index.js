@@ -17,14 +17,24 @@ const style = {
     },
 };
 
-export default function Exercises({ exercisesByMuscles }) {
+export default function Exercises({
+        category,
+        exercisesByMuscles,
+        exercise,
+        onSelect
+    }) {
     return (
         <Grid container>
             <Grid item sm>
-                <LeftPane style={style} exercisesByMuscles={exercisesByMuscles} />
+                <LeftPane
+                    style={style}
+                    category={category}
+                    exercisesByMuscles={exercisesByMuscles}
+                    onSelect={onSelect}
+                />
             </Grid>
             <Grid item sm>
-                <RightPane style={style} />
+                <RightPane style={style} exercise={exercise} />
             </Grid>
         </Grid>
     );
