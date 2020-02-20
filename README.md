@@ -8,7 +8,7 @@ Getting started.
 Create a custom grid with a AppBar (as Header) and Tabs (as Footer).
 
 ### 03 Class: Data Store
-
+I really don't like his Design Pattern >.<. Decided to follow Rocket Seat setup (https://rocketseat.com.br/).
 
 #### Video link/description:
     Link: https://www.youtube.com/watch?v=fox4Y-_Q9hE&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk&index=3
