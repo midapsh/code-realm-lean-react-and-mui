@@ -9,7 +9,11 @@ import RightPane from './RightPane';
 
 const style = {
     Paper: {
-        padding: 20, marginTop: 10, marginBottom: 10,
+        padding: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        height: 500,
+        overflowY: "auto",
     },
 };
 
