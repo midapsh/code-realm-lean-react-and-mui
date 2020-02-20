@@ -9,6 +9,7 @@ import {
 
 export default function Dashboard() {
     const [exercisesByMuscles, setExercisesByMuscles] = useState([]);
+    const [category, setCategory] = useState("");
 
     useEffect(() => {
         async function loadExercisesByMuscles() {
@@ -28,6 +29,10 @@ export default function Dashboard() {
         loadExercisesByMuscles();
     }, []);
 
+    async function handleCategorySelected(category) {
+        setCategory(category);
+    }
+
     return (
         <>
             <Header />
@@ -35,8 +40,9 @@ export default function Dashboard() {
                 exercisesByMuscles={exercisesByMuscles}
             />
             <Footer
+                category={category}
                 muscles={muscles}
-            // onSelect={handleCategorySelected}
+                onSelect={handleCategorySelected}
             />
         </>
     );
