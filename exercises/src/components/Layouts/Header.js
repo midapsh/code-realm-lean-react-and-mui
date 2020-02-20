@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h4">
+        <Typography variant="h6" color="inherit">
           My Exercise DataBase
         </Typography>
       </Toolbar>
