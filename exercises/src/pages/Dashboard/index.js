@@ -8,16 +8,16 @@ import {
 } from "../../services/store";
 
 export default function Dashboard() {
+    const [clientExercises, setClientExercises] = useState(exercises);
     const [exercisesByMuscles, setExercisesByMuscles] = useState([]);
     const [category, setCategory] = useState("");
     const [exercise, setExercise] = useState({});
-
 
     useEffect(() => {
         async function loadExercisesByMuscles() {
             // setExercisesByMuscles(Object.entries(groupBy(exercises)));
             setExercisesByMuscles(Object.entries(
-                exercises.reduce((exercises, exercise) => {
+                clientExercises.reduce((exercises, exercise) => {
                     const { muscles } = exercise
 
                     exercises[muscles] = exercises[muscles]
@@ -29,19 +29,23 @@ export default function Dashboard() {
             ));
         }
         loadExercisesByMuscles();
-    }, []);
+    }, [clientExercises]);
 
     async function handleCategorySelected(category) {
         setCategory(category);
     }
 
     async function handleExerciseSelected(id) {
-        setExercise(exercises.find(ex => ex.id === id));
+        setExercise(clientExercises.find(ex => ex.id === id));
+    }
+
+    async function handleExerciseCreated(exercise) {
+        setClientExercises([...clientExercises, exercise]);
     }
 
     return (
         <>
-            <Header />
+            <Header muscles={muscles} onExerciseCreate={handleExerciseCreated} />
             <Exercises
                 exercise={exercise}
                 category={category}
