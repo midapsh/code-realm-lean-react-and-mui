@@ -14,7 +14,12 @@ Create a custom grid with a AppBar (as Header) and Tabs (as Footer).
 I really don't like his Design Pattern >.<. Decided to follow Rocket Seat setup (https://rocketseat.com.br/).
 
 ### Class 04
-Create list of list "<\ul><\li>" with List and ListItem
+Create list of list "<\ul><\li>" with List and ListItem.
 
 ### Class 05
 Insert Fab with click functions.
+
+### Class 06
+Create form.
+
+### Class 07
