@@ -18,10 +18,13 @@ const style = {
 };
 
 export default function Exercises({
+        // Left pane    
         category,
         exercisesByMuscles,
-        exercise,
-        onSelect
+        onSelect,
+        onDelete,
+        // Right pane
+        exercise
     }) {
     return (
         <Grid container>
@@ -31,6 +34,7 @@ export default function Exercises({
                     category={category}
                     exercisesByMuscles={exercisesByMuscles}
                     onSelect={onSelect}
+                    onDelete={onDelete}
                 />
             </Grid>
             <Grid item sm>

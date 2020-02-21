@@ -16,46 +16,53 @@ export default function Dashboard() {
     useEffect(() => {
         async function loadExercisesByMuscles() {
             // setExercisesByMuscles(Object.entries(groupBy(exercises)));
+            const initExercises = muscles.reduce((exercises, category) => ({
+                ...exercises,
+                [category]: [],
+            }), {});
             setExercisesByMuscles(Object.entries(
                 clientExercises.reduce((exercises, exercise) => {
                     const { muscles } = exercise
 
-                    exercises[muscles] = exercises[muscles]
-                        ? [...exercises[muscles], exercise]
-                        : [exercise];
+                    exercises[muscles] = [...exercises[muscles], exercise];
 
                     return exercises;
-                }, {})
+                }, initExercises)
             ));
         }
         loadExercisesByMuscles();
     }, [clientExercises]);
 
-    async function handleCategorySelected(category) {
+    async function handleCategorySelect(category) {
         setCategory(category);
     }
 
-    async function handleExerciseSelected(id) {
+    async function handleExerciseSelect(id) {
         setExercise(clientExercises.find(ex => ex.id === id));
     }
 
-    async function handleExerciseCreated(exercise) {
+    async function handleExerciseCreate(exercise) {
         setClientExercises([...clientExercises, exercise]);
+    }
+
+    async function handleExerciseDelete(id) {
+        setClientExercises(clientExercises.filter(ex => ex.id !== id));
     }
 
     return (
         <>
-            <Header muscles={muscles} onExerciseCreate={handleExerciseCreated} />
+            <Header muscles={muscles} onExerciseCreate={handleExerciseCreate} />
             <Exercises
                 exercise={exercise}
                 category={category}
                 exercisesByMuscles={exercisesByMuscles}
-                onSelect={handleExerciseSelected}
+                onSelect={handleExerciseSelect}
+                onDelete={handleExerciseDelete}
             />
             <Footer
                 category={category}
                 muscles={muscles}
-                onSelect={handleCategorySelected}
+                onSelect={handleCategorySelect}
             />
         </>
     );

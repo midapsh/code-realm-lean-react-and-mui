@@ -2,10 +2,17 @@ import React, { Fragment } from 'react';
 
 import {
     Paper, Typography,
-    List, ListItem, ListItemText
+    List, ListItem, ListItemText, ListItemSecondaryAction, IconButton
 } from "@material-ui/core";
 
-export default function LeftPane({ style, category, exercisesByMuscles, onSelect }) {
+import DeleteIcon from '@material-ui/icons/Delete';
+
+export default function LeftPane({ style,
+    category,
+    exercisesByMuscles,
+    onSelect,
+    onDelete
+}) {
     return (
         <Paper style={style.Paper}>
             {exercisesByMuscles.map(([group, exercises]) =>
@@ -31,6 +38,11 @@ export default function LeftPane({ style, category, exercisesByMuscles, onSelect
                                         the Text to change the data.
                                     */}
                                     <ListItemText primary={title} />
+                                    <ListItemSecondaryAction>
+                                        <IconButton onClick={() => onDelete(id)}>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </ListItemSecondaryAction>
                                 </ListItem>
                             )}
                         </List>
