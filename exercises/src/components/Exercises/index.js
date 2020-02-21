@@ -25,7 +25,8 @@ export default function Exercises({
         onDelete,
         onSelectEdit,
         // Right pane
-        exercise
+        exercise,
+        editMode
     }) {
     return (
         <Grid container>
@@ -43,6 +44,7 @@ export default function Exercises({
                 <RightPane
                     style={style}
                     exercise={exercise}
+                    editMode={editMode}
                 />
             </Grid>
         </Grid>

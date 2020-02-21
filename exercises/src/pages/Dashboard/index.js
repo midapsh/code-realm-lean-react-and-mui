@@ -59,12 +59,15 @@ export default function Dashboard() {
         <>
             <Header muscles={muscles} onExerciseCreate={handleExerciseCreate} />
             <Exercises
-                exercise={exercise}
+                // Left pane
                 category={category}
                 exercisesByMuscles={exercisesByMuscles}
                 onSelect={handleExerciseSelect}
                 onDelete={handleExerciseDelete}
                 onSelectEdit={handleExerciseSelectEdit}
+                // Right pane
+                exercise={exercise}
+                editMode={editMode}
             />
             <Footer
                 category={category}

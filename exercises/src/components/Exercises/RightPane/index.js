@@ -7,21 +7,27 @@ export default function RightPane({
     exercise: {
         title = "Welcome!",
         description = "Please select your stuff"
-    }
+    },
+    editMode
 }) {
     return (
         <Paper style={style.Paper}>
-            <Typography
-                variant="h3"
-            >
-                {title}
-            </Typography>
-            <Typography
-                variant="subtitle1"
-                style={{ marginTop: 20 }}
-            >
-                {description}
-            </Typography>
+            {editMode
+                ? <> {/* <Form /> */} </>
+                : <>
+                    <Typography
+                        variant="h3"
+                    >
+                        {title}
+                    </Typography>
+                    <Typography
+                        variant="subtitle1"
+                        style={{ marginTop: 20 }}
+                    >
+                        {description}
+                    </Typography>
+                </>
+            }
         </Paper>
     );
 }
