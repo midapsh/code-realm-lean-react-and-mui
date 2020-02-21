@@ -23,6 +23,7 @@ export default function Exercises({
         exercisesByMuscles,
         onSelect,
         onDelete,
+        onSelectEdit,
         // Right pane
         exercise
     }) {
@@ -35,10 +36,14 @@ export default function Exercises({
                     exercisesByMuscles={exercisesByMuscles}
                     onSelect={onSelect}
                     onDelete={onDelete}
+                    onSelectEdit={onSelectEdit}
                 />
             </Grid>
             <Grid item sm>
-                <RightPane style={style} exercise={exercise} />
+                <RightPane
+                    style={style}
+                    exercise={exercise}
+                />
             </Grid>
         </Grid>
     );

@@ -12,6 +12,7 @@ export default function Dashboard() {
     const [exercisesByMuscles, setExercisesByMuscles] = useState([]);
     const [category, setCategory] = useState("");
     const [exercise, setExercise] = useState({});
+    const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
         async function loadExercisesByMuscles() {
@@ -49,6 +50,11 @@ export default function Dashboard() {
         setClientExercises(clientExercises.filter(ex => ex.id !== id));
     }
 
+    async function handleExerciseSelectEdit(id) {
+        setExercise(clientExercises.find(ex => ex.id === id));
+        setEditMode(true);
+    }
+
     return (
         <>
             <Header muscles={muscles} onExerciseCreate={handleExerciseCreate} />
@@ -58,6 +64,7 @@ export default function Dashboard() {
                 exercisesByMuscles={exercisesByMuscles}
                 onSelect={handleExerciseSelect}
                 onDelete={handleExerciseDelete}
+                onSelectEdit={handleExerciseSelectEdit}
             />
             <Footer
                 category={category}

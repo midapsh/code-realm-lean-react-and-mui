@@ -5,13 +5,14 @@ import {
     List, ListItem, ListItemText, ListItemSecondaryAction, IconButton
 } from "@material-ui/core";
 
-import DeleteIcon from '@material-ui/icons/Delete';
+import {Delete, Edit} from '@material-ui/icons';
 
 export default function LeftPane({ style,
     category,
     exercisesByMuscles,
     onSelect,
-    onDelete
+    onDelete,
+    onSelectEdit
 }) {
     return (
         <Paper style={style.Paper}>
@@ -39,8 +40,11 @@ export default function LeftPane({ style,
                                     */}
                                     <ListItemText primary={title} />
                                     <ListItemSecondaryAction>
+                                        <IconButton onClick={() => onSelectEdit(id)}>
+                                            <Edit />
+                                        </IconButton>
                                         <IconButton onClick={() => onDelete(id)}>
-                                            <DeleteIcon />
+                                            <Delete />
                                         </IconButton>
                                     </ListItemSecondaryAction>
                                 </ListItem>
