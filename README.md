@@ -23,3 +23,6 @@ Insert Fab with click functions.
 Create form.
 
 ### Class 07
+Create deleting exercises func
+
+### Class 08
